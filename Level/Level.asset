@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acb0ebb6efe0a74bb5e9f3a9c2f6bb7, type: 3}
   m_Name: Level
   m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 5965092446088135243, guid: 42966de7544312f47a0972459d12cfde, type: 3}
+  _playerPrefab: {fileID: 610535477852083257, guid: ec5dc9a9da4ff764888d9ba666f290c5, type: 3}
+  _ladderPrefab: {fileID: 4743435226802352145, guid: 10b89128d5d5d214693d35387c291958, type: 3}
+  _bridgePrefab: {fileID: 1557629460342897546, guid: eb9a63536039404488091a3f1dca8941, type: 3}

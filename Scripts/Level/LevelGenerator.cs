@@ -6,4 +6,8 @@ using UnityEngine;
 public class LevelGenerator : ScriptableObject
 {
     //This is a scriptable object that is used to generator a level;
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private GameObject _ladderPrefab;
+    [SerializeField] private GameObject _bridgePrefab;
 }
