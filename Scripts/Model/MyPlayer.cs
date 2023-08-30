@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MyPlayer : MonoBehaviour, BaapBaapHotaHai
 {
-    [SerializeField] private int _speed;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jump;
     [SerializeField] private Rigidbody2D _rb;
     private static MyPlayer _instance;
 
@@ -17,7 +14,7 @@ public class MyPlayer : MonoBehaviour, BaapBaapHotaHai
     {
         get
         {
-            if( _instance == null)
+            if (_instance == null)
             {
                 _instance = FindObjectOfType<MyPlayer>();
             }
@@ -32,14 +29,26 @@ public class MyPlayer : MonoBehaviour, BaapBaapHotaHai
 
     private void Update()
     {
-        _rb.MovePosition((Vector2)transform.position + _position * Time.deltaTime * _speed);
+        if (_move)
+        {
+            _rb.MovePosition((Vector2)transform.position + _position * Time.deltaTime * _speed);
+            transform.GetChild(0).GetComponent<Animator>().SetBool(AnimBool.isWalking.ToString(), true);
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetBool(AnimBool.isWalking.ToString(), false);
+        }
     }
 
     protected internal void Move(Vector2 _direction, bool _canMove)
     {
-        //This method is used to move the player towards the provided direction...
-        //Debug.Log("Move Player... " + _direction);
         _move = _canMove;
         _position = _direction;
+    }
+
+    protected internal void Jump()
+    {
+        transform.GetChild(0).GetComponent<Animator>().Play(PlayerAnimation.PlayerJump.ToString());
+        //_rb.AddForce(new Vector2(_rb.velocity.x, _jump));
     }
 }
