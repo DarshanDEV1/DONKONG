@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Level Generator")]
-public class LevelGenerator : ScriptableObject
+public class LevelGenerator : ScriptableObject, BaapBaapHotaHai
 {
     #region SINGLETON_INSTANCES
     private static LevelGenerator _instance;
@@ -22,7 +22,15 @@ public class LevelGenerator : ScriptableObject
     #endregion
 
     #region PRIMITIVE_VARIABLES
+
+    #region Variables
     private int _level = 10;
+    #endregion
+
+    #region Arrays
+    private List<GameObject> _instantiatedBridges;
+    #endregion
+
     #endregion
 
     #region PUBLIC_METHODS
@@ -39,11 +47,11 @@ public class LevelGenerator : ScriptableObject
         Debug.Log("Level Generation Process Has Been Begun...");
         for(int col = 0; col < _level; col++)
         {
-            for(int row = 0; row < 1; row++)
+            for(int row = 0; row < Random.Range(1, 3); row++)
             {
-                Vector3 _m = new Vector3(row * 2, col * 2, 0);
+                Transform _parent = GameObject.FindGameObjectWithTag("Level").transform;
+                Vector3 _m = new Vector3(_parent.position.x + row * Random.Range(3, 5), _parent.position.y + col * 2, 0);
                 var _x = Instantiate(_prefabs[3], _m, Quaternion.identity);
-                _x.transform.SetParent(GameObject.FindGameObjectWithTag("Level").transform);
             }
         }
     }

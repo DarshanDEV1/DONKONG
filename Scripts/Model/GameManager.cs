@@ -18,6 +18,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _ui_Controller.Begin(_ui_Prefab);
-        _levelGenerator.Begin(_prefabs);
+        //_levelGenerator.Begin(_prefabs);
     }
 }

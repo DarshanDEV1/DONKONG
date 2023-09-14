@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7738348608612617056}
   - component: {fileID: 7738348608612617057}
   m_Layer: 0
-  m_Name: Road
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
